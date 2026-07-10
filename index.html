@@ -128,8 +128,8 @@
         const query = `${matchInfo} onde assistir`;
         const googleUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
 
-        // Abre na mesma aba/página
-        window.location.href = googleUrl;
+        // ALTERAÇÃO AQUI: Força o navegador atual a abrir o link sem disparar o app do Google
+        window.location.replace(googleUrl);
     }
 </script>
 
