@@ -54,7 +54,7 @@
         input {
             width: 100%;
             padding: 16px;
-            font-size: 18px; /* Evita o zoom automático no iOS */
+            font-size: 20px; /* Evita o zoom automático no iOS */
             background-color: #f5f7fa; /* Fundo cinza bem claro para o campo */
             border: 2px solid #ccd6e0; /* Contorno suave */
             border-radius: 12px;
@@ -107,7 +107,7 @@
         <input 
             type="text" 
             id="matchInput" 
-            placeholder="Insira quem vai jogar" 
+            placeholder="uem vai jogar?" 
             required 
             autofocus 
             autocomplete="off" 
@@ -125,7 +125,7 @@
         const matchInfo = document.getElementById('matchInput').value.trim();
         if (matchInfo === "") return;
 
-        const query = `${matchInfo} onde assistir`;
+        const query = `${matchInfo} onde assistir uol`;
         const googleUrl = `https://duckduckgo.com/?q=${encodeURIComponent(query)}`;
 
         // ALTERAÇÃO AQUI: Força o navegador atual a abrir o link sem disparar o app do Google
