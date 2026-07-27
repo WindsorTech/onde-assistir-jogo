@@ -25,7 +25,7 @@
 
         .app-container {
             width: 100%;
-            max-width: 400px;
+            max-width: 300px;
             text-align: center;
         }
 
@@ -43,6 +43,10 @@
             margin-bottom: 20px;
             color: #808080;
             letter-spacing: -0.5px;
+        }
+
+        .tabela {
+            margin-top: 20px;
         }
 
         form {
@@ -98,12 +102,11 @@
       <link rel="icon" href="images/bola-icon.ico" type="image/x-icon">
 
 </head>
-<body>
+<body>  
 
 <div class="app-container">
     <h1>Onde Assistir o Jogo?</h1>
     <h1>⚽️🏀🏐🏈🥎</h1>
-    <h2>by WindsorTech</h2>
     <form onsubmit="buscarJogo(event)">
         <input 
             type="text" 
@@ -115,8 +118,39 @@
             autocorrect="off" 
             autocapitalize="words"
         >
-        <button type="submit">Buscar</button>
+       <!-- <button type="submit">Buscar</button> -->
     </form>
+
+    <h1 class="tabela">🗓️ Tabela 🗓️</h1>
+    <form onsubmit="buscarTabela(event)">
+        <input 
+            type="text" 
+            id="champInput" 
+            placeholder="Qual o campeonato?" 
+            required 
+            autofocus 
+            autocomplete="off" 
+            autocorrect="off" 
+            autocapitalize="words"
+        >
+    </form>
+
+    <h1 class="tabela">📈 Transferências 📉</h1>
+    <form onsubmit="buscarJogador(event)">
+        <input 
+            type="text" 
+            id="playerInput" 
+            placeholder="Qual o jogador?" 
+            required 
+            autofocus 
+            autocomplete="off" 
+            autocorrect="off" 
+            autocapitalize="words"
+        >
+    </form>
+
+    <h2 class="tabela">by WindsorTech</h2>
+
 </div>
 
 <script>
@@ -132,7 +166,35 @@
         // ALTERAÇÃO AQUI: Força o navegador atual a abrir o link sem disparar o app do Google
         window.location.replace(googleUrl);
     }
+
+    function buscarTabela(event) {
+        event.preventDefault(); 
+        
+        const matchInfo = document.getElementById('champInput').value.trim();
+        if (matchInfo === "") return;
+
+        const query = `${matchInfo} tabela globo esporte ge`;
+        const googleUrl = `https://duckduckgo.com/?q=${encodeURIComponent(query)}`;
+
+        // ALTERAÇÃO AQUI: Força o navegador atual a abrir o link sem disparar o app do Google
+        window.location.replace(googleUrl);
+    }
+
+    function buscarJogador(event) {
+        event.preventDefault(); 
+        
+        const matchInfo = document.getElementById('playerInput').value.trim();
+        if (matchInfo === "") return;
+
+        const query = `${matchInfo} transfermarkt player transfers`;
+        const googleUrl = `https://duckduckgo.com/?q=${encodeURIComponent(query)}`;
+
+        // ALTERAÇÃO AQUI: Força o navegador atual a abrir o link sem disparar o app do Google
+        window.location.replace(googleUrl);
+    }
 </script>
+
+</div>
 
 </body>
 </html>
