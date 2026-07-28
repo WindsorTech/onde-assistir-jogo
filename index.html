@@ -140,7 +140,21 @@
         <input 
             type="text" 
             id="playerInput" 
-            placeholder="Qual o jogador?" 
+            placeholder="Quem é o jogador?" 
+            required 
+            autofocus 
+            autocomplete="off" 
+            autocorrect="off" 
+            autocapitalize="words"
+        >
+    </form>
+
+    <h1 class="tabela">📺 Programação 📺</h1>
+    <form onsubmit="buscarCanal(event)">
+        <input 
+            type="text" 
+            id="channelInput" 
+            placeholder="Qual o canal?" 
             required 
             autofocus 
             autocomplete="off" 
@@ -187,6 +201,19 @@
         if (matchInfo === "") return;
 
         const query = `${matchInfo} transfermarkt player transfer history`;
+        const googleUrl = `https://duckduckgo.com/?q=${encodeURIComponent(query)}`;
+
+        // ALTERAÇÃO AQUI: Força o navegador atual a abrir o link sem disparar o app do Google
+        window.location.replace(googleUrl);
+    }
+
+    function buscarCanal(event) {
+        event.preventDefault(); 
+        
+        const matchInfo = document.getElementById('channelInput').value.trim();
+        if (matchInfo === "") return;
+
+        const query = `${matchInfo} grade de programação`;
         const googleUrl = `https://duckduckgo.com/?q=${encodeURIComponent(query)}`;
 
         // ALTERAÇÃO AQUI: Força o navegador atual a abrir o link sem disparar o app do Google
